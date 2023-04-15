@@ -1,11 +1,17 @@
 import MainLayout from "@/Layouts/MainLayout";
+import { Head } from "@inertiajs/react";
 import React from "react";
 
 const Home = () => {
     return (
-        <MainLayout>
-            <div>Home</div>
-        </MainLayout>
+        <>
+            <Head>
+                <title>Home</title>
+            </Head>
+            <MainLayout>
+                <div>Home</div>
+            </MainLayout>
+        </>
     );
 };
 
