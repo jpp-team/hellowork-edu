@@ -7,7 +7,7 @@ const MainLayout = ({ children }) => {
     return (
         <>
         <Head title="Home" />
-            <div>
+            <div className="flex flex-col min-h-screen antialiased bg-[#FFF8F0]">
                 <Navbar />
                 {children}
                 <Footer />
