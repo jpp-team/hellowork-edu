@@ -96,6 +96,34 @@ const Home = () => {
                             <button>affh</button>
                         </div>
                     </section>
+                    <section
+                        className="border-[#DF5B6A] border-t-2 py-20 bg-contain bg-no-repeat bg-right-bottom"
+                        style={{ backgroundImage: `url('${assets.bgAbout}')` }}
+                    >
+                        <div className="container mx-auto">
+                            <div className="flex flex-col w-2/3 gap-8">
+                                <h1 className="font-normal text-6xl font-serif leading-snug">
+                                    E-Learning <br /> one step for a better
+                                    future with hellowork-asia
+                                </h1>
+                                <div className="flex w-3/4">
+                                    <div className="w-full flex flex-col gap-2">
+                                        <h2 className="font-serif text-4xl">
+                                            DOWNLOAD HELLOWORK-ASIA APP NOW!
+                                        </h2>
+                                        <p className="font-serif font-light">
+                                            Fast, Simple & Delightful, All it
+                                            takes is 30 seconds Download
+                                        </p>
+                                    </div>
+                                    <div className="flex flex-col w-48">
+                                        <img src={assets.appStore} />
+                                        <img src={assets.playStore} className="w-max" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
             </MainLayout>
         </>
