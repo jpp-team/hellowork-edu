@@ -7,6 +7,8 @@ import aboutImg from "@/Assets/landing/about-img.png";
 import bgAbout from "@/Assets/landing/bg-about.png";
 import playStore from "@/Assets/landing/google-play-badge.png";
 import appStore from "@/Assets/landing/app-store-badge.svg";
+import leftArrow from "@/Assets/landing/left-arrow.png";
+import rightArrow from "@/Assets/landing/right-arrow.png";
 
 const assets = {
     logoMin,
@@ -18,6 +20,8 @@ const assets = {
     bgAbout,
     playStore,
     appStore,
+    leftArrow,
+    rightArrow,
 };
 
 export default assets;
