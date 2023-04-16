@@ -13,6 +13,7 @@ module.exports = {
         extend: {
             fontFamily: {
                 sans: ['Plus Jakarta Sans', ...defaultTheme.fontFamily.sans],
+                serif: ['Patua One', ...defaultTheme.fontFamily.serif]
             },
         },
     },
