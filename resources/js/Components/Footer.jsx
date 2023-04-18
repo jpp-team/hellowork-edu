@@ -2,6 +2,7 @@ import React from "react";
 import '../../scss/main.scss';
 import PrimaryButton from "./PrimaryButton";
 import { Col, Row } from "reactstrap"
+import { Facebook, Instagram, Twitter } from "react-feather";
 
 const Footer = () => {
     return (
@@ -14,6 +15,20 @@ const Footer = () => {
                         <p className="subtitle-content">Freelance job information. Our Vision is Make more choice and<br/></p>
                         <p className="subtitle-content">oportunity for Life and Job Style, also Education trough<br/></p>
                         <p className="subtitle-content">working<br/></p>
+
+                        <div className="media">
+                            <a href="">
+                                <Facebook/>
+                            </a>
+
+                            <a href="">
+                                <Twitter/>
+                            </a>
+
+                            <a href="">
+                                <Instagram/>
+                            </a>
+                        </div>
                     </Col>
                     <Col lg={2}>
                         <p className="title-content">Information<br/></p>
