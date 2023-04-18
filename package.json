@@ -21,6 +21,8 @@
     },
     "dependencies": {
         "@inertiajs/react": "^1.0.3",
-        "@splidejs/react-splide": "^0.7.12"
+        "@splidejs/react-splide": "^0.7.12",
+        "reactstrap": "^9.1.9",
+        "sass": "^1.62.0"
     }
 }
