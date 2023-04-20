@@ -17,4 +17,9 @@ jobs:
           key: ${{ secrets.DEV_KEY }}
           port: 22
           script: |
-            ls -la
+            cd /var/www/html/hellowork-edu
+            git checkout staging
+            git pull
+            composer install
+            npm i
+            npm run build
