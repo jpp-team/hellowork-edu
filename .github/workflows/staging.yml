@@ -20,6 +20,6 @@ jobs:
             cd /var/www/html/hellowork-edu
             git checkout staging
             git pull
-            composer install
+            /usr/bin/php8.0 /usr/local/bin/composer install
             npm i
             npm run build
