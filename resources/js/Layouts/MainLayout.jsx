@@ -1,6 +1,7 @@
+import React from "react";
+import FloatingButton from "@/Components/FloatingButton";
 import Footer from "@/Components/Footer";
 import Navbar from "@/Components/Navbar";
-import React from "react";
 
 const MainLayout = ({ children }) => {
     return (
@@ -8,6 +9,7 @@ const MainLayout = ({ children }) => {
             <Navbar />
             {children}
             <Footer />
+            <FloatingButton />
         </div>
     );
 };
