@@ -12,7 +12,8 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['Plus Jakarta Sans', ...defaultTheme.fontFamily.sans],
+                serif: ['Patua One', ...defaultTheme.fontFamily.serif]
             },
         },
     },
