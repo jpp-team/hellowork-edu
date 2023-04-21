@@ -23,6 +23,7 @@
         "@inertiajs/react": "^1.0.3",
         "@splidejs/react-splide": "^0.7.12",
         "react-feather": "^2.0.10",
+        "react-icons": "^4.8.0",
         "reactstrap": "^9.1.9",
         "sass": "^1.62.0"
     }
