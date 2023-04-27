@@ -5,8 +5,8 @@ const FooterAbout = () => {
     return (
         <div>
             <section className="bg-[#24324a] py-12 text-white">
-                <div className="container mx-auto grid grid-cols-12 gap-32">
-                    <div className="col-span-4 flex flex-col gap-8">
+                <div className="container mx-auto flex flex-col gap-12 md:grid md:grid-cols-12 md:gap-8 lg:gap-16 2xl:gap-32">
+                    <div className="md:col-span-4 flex flex-col gap-8">
                         <h2>Who We Are</h2>
                         <p className="text-[#8a99b3] text-sm leading-8">
                             Hellowork is a platform to provide Internship,
@@ -20,7 +20,7 @@ const FooterAbout = () => {
                             <FaInstagram size={24} />
                         </div>
                     </div>
-                    <div className="col-span-2 flex flex-col gap-8">
+                    <div className="md:col-span-2 flex flex-col gap-8">
                         <h2>Information</h2>
                         <ul className="text-[#8a99b3] leading-8 text-sm">
                             <li>Terms & Condition</li>
@@ -29,7 +29,7 @@ const FooterAbout = () => {
                             <li>FAQs</li>
                         </ul>
                     </div>
-                    <div className="col-span-2 flex flex-col gap-8">
+                    <div className="md:col-span-2 flex flex-col gap-8">
                         <h2>Find Jobs</h2>
                         <ul className="text-[#8a99b3] leading-8 text-sm">
                             <li>Part Time</li>
@@ -38,7 +38,7 @@ const FooterAbout = () => {
                             <li>Working Abroad</li>
                         </ul>
                     </div>
-                    <div className="col-span-4 flex flex-col gap-2">
+                    <div className="md:col-span-4 flex flex-col gap-2">
                         <iframe
                             className="w-full h-32"
                             style={{ border: 0, borderRadius: 0 }}
