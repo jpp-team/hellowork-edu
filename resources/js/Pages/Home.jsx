@@ -31,7 +31,14 @@ const Home = () => {
                             options={{
                                 breakpoints: {
                                     1280: {
-                                        width: 300
+                                        width: 996
+                                    },
+                                    996: {
+                                        width: 780
+                                    },
+                                    640: {
+                                        perPage: 2,
+                                        width: 500
                                     }
                                 },
                                 pagination: false,
