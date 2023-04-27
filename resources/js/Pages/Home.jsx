@@ -15,10 +15,10 @@ const Home = () => {
                 <div className="flex flex-col">
                     <section className="container mx-auto flex flex-col justify-center items-center py-8">
                         <div className="inline-flex items-center rounded-full bg-white px-2 py-3 gap-2 w-fit">
-                            <div className="w-[360px] text-center rounded-full bg-black text-white py-3">
+                            <div className="w-auto sm:w-48 md:w-72 xl:w-[360px] px-6 sm:px-0 text-center rounded-full bg-black text-white py-3">
                                 Learn and Get Certificates
                             </div>
-                            <div className="w-[360px] text-center">
+                            <div className="w-auto sm:w-48 md:w-72 xl:w-[360px] px-6 sm:px-0 text-center">
                                 Build Your Career
                             </div>
                         </div>
@@ -29,6 +29,11 @@ const Home = () => {
                     <section className="container mx-auto flex flex-col justify-center items-center py-8">
                         <Splide
                             options={{
+                                breakpoints: {
+                                    1280: {
+                                        width: 300
+                                    }
+                                },
                                 pagination: false,
                                 type: "loop",
                                 perPage: 3,
@@ -88,8 +93,8 @@ const Home = () => {
                         </Splide>
                     </section>
                     <section
-                        className="border-[#DF5B6A] border-t-2 py-20 bg-contain bg-no-repeat bg-right-bottom"
-                        style={{ backgroundImage: `url('${assets.bgAbout}')` }}
+                        className={`border-[#DF5B6A] border-t-2 py-20 bg-contain bg-no-repeat bg-right-bottom bg-[image:var(--image-about-url)]`}
+                        style={{ '--image-about-url': `url('${assets.bgAbout}')` }}
                     >
                         <div className="container mx-auto">
                             <div className="flex flex-col w-2/3 gap-8">
