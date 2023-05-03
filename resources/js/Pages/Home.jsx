@@ -104,14 +104,14 @@ const Home = () => {
                         style={{ '--image-about-url': `url('${assets.bgAbout}')` }}
                     >
                         <div className="container mx-auto">
-                            <div className="flex flex-col w-2/3 gap-8">
-                                <h1 className="font-normal text-6xl font-serif leading-snug">
+                            <div className="w-4/5 flex flex-col md:w-2/3 gap-8">
+                                <h1 className="text-4xl font-normal md:text-5xl lg:text-6xl font-serif leading-snug">
                                     E-Learning <br /> one step for a better
                                     future with hellowork-asia
                                 </h1>
-                                <div className="flex w-3/4">
+                                <div className="flex md:w-3/4">
                                     <div className="w-full flex flex-col gap-2">
-                                        <h2 className="font-serif text-4xl">
+                                        <h2 className="text-3xl font-serif md:text-4xl">
                                             DOWNLOAD HELLOWORK-ASIA APP NOW!
                                         </h2>
                                         <p className="font-serif font-light">
