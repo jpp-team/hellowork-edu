@@ -1,4 +1,5 @@
-import assets from "@/Data/assets";
+import { logoMin } from "@/Data/assets";
+import { router } from "@inertiajs/react";
 import React, { useState } from "react";
 import PrimaryButton from "./PrimaryButton";
 
@@ -12,17 +13,20 @@ const Navbar = () => {
     function handleMenuButtonClick() {
         setMenuIsHidden(!menuIsHidden);
     }
+    const goToLogin = (e) => {
+        router.visit('/login')
+    }
     return (
         <nav>
             <div className="max-w-6xl mx-auto px-4">
                 <div className="flex justify-between items-center p-8">
-                    <img src={assets.logoMin} className="" />
+                    <img src={logoMin} />
                     <ul className="hidden md:flex items-center gap-2">
                         <li>
                             <PrimaryButton>Course</PrimaryButton>
                         </li>
                         <li>
-                            <PrimaryButton>Login</PrimaryButton>
+                            <PrimaryButton onClick={goToLogin}>Login</PrimaryButton>
                         </li>
                         <li>
                             <PrimaryButton>Register</PrimaryButton>

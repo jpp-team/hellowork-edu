@@ -10,7 +10,7 @@ import appStore from "@/Assets/landing/app-store-badge.svg";
 import leftArrow from "@/Assets/landing/left-arrow.png";
 import rightArrow from "@/Assets/landing/right-arrow.png";
 
-const assets = {
+export {
     logoMin,
     imgHero,
     dibimbing,
@@ -23,5 +23,3 @@ const assets = {
     leftArrow,
     rightArrow,
 };
-
-export default assets;
