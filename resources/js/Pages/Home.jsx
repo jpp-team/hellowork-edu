@@ -2,7 +2,15 @@ import React from "react";
 import { Head } from "@inertiajs/react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import MainLayout from "@/Layouts/MainLayout";
-import assets from "@/Data/assets";
+import {
+    appStore,
+    arkalearn,
+    bgAbout,
+    comingSoon,
+    dibimbing,
+    imgHero,
+    playStore,
+} from "@/Data/assets";
 import "@splidejs/react-splide/css";
 
 const Home = () => {
@@ -24,22 +32,22 @@ const Home = () => {
                         </div>
                     </section>
                     <section className="flex justify-center">
-                        <img src={assets.imgHero} className="w-11/12" />
+                        <img src={imgHero} className="w-11/12" />
                     </section>
                     <section className="container mx-auto flex flex-col justify-center items-center py-8">
                         <Splide
                             options={{
                                 breakpoints: {
                                     1280: {
-                                        width: 996
+                                        width: 996,
                                     },
                                     996: {
-                                        width: 780
+                                        width: 780,
                                     },
                                     640: {
                                         perPage: 2,
-                                        width: 500
-                                    }
+                                        width: 500,
+                                    },
                                 },
                                 pagination: false,
                                 type: "loop",
@@ -55,7 +63,7 @@ const Home = () => {
                                 <div className="flex flex-col justify-center items-center gap-2">
                                     <div className="bg-white rounded-full w-32 h-32 flex justify-center items-center">
                                         <img
-                                            src={assets.dibimbing}
+                                            src={dibimbing}
                                             className="object-center w-24 h-auto"
                                         />
                                     </div>
@@ -68,7 +76,7 @@ const Home = () => {
                                 <div className="flex flex-col justify-center items-center gap-2">
                                     <div className="bg-white rounded-full w-32 h-32 flex justify-center items-center">
                                         <img
-                                            src={assets.arkalearn}
+                                            src={arkalearn}
                                             className="object-center w-24 h-auto"
                                         />
                                     </div>
@@ -79,7 +87,7 @@ const Home = () => {
                                 <div className="flex flex-col justify-center items-center gap-2">
                                     <div className="bg-white rounded-full w-32 h-32 flex justify-center items-center">
                                         <img
-                                            src={assets.comingSoon}
+                                            src={comingSoon}
                                             className="object-center w-24 h-auto"
                                         />
                                     </div>
@@ -90,7 +98,7 @@ const Home = () => {
                                 <div className="flex flex-col justify-center items-center gap-2">
                                     <div className="bg-white rounded-full w-32 h-32 flex justify-center items-center">
                                         <img
-                                            src={assets.comingSoon}
+                                            src={comingSoon}
                                             className="object-center w-24 h-auto"
                                         />
                                     </div>
@@ -101,7 +109,7 @@ const Home = () => {
                     </section>
                     <section
                         className={`border-[#DF5B6A] border-t-2 py-20 bg-contain bg-no-repeat bg-right-bottom lg:bg-[image:var(--image-about-url)]`}
-                        style={{ '--image-about-url': `url('${assets.bgAbout}')` }}
+                        style={{ "--image-about-url": `url('${bgAbout}')` }}
                     >
                         <div className="container mx-auto">
                             <div className="w-4/5 flex flex-col md:w-2/3 gap-8">
@@ -120,9 +128,9 @@ const Home = () => {
                                         </p>
                                     </div>
                                     <div className="flex flex-col w-48">
-                                        <img src={assets.appStore} />
+                                        <img src={appStore} />
                                         <img
-                                            src={assets.playStore}
+                                            src={playStore}
                                             className="w-max"
                                         />
                                     </div>
