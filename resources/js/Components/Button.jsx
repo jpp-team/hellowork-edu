@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import React from "react";
+import clsx from "clsx";
 
 const Button = ({ variant, disable, className, children, ...props }) => {
     const variantClasses = {
