@@ -100,7 +100,7 @@ const Home = () => {
                         </Splide>
                     </section>
                     <section
-                        className={`border-[#DF5B6A] border-t-2 py-20 bg-contain bg-no-repeat bg-right-bottom bg-[image:var(--image-about-url)]`}
+                        className={`border-[#DF5B6A] border-t-2 py-20 bg-contain bg-no-repeat bg-right-bottom lg:bg-[image:var(--image-about-url)]`}
                         style={{ '--image-about-url': `url('${assets.bgAbout}')` }}
                     >
                         <div className="container mx-auto">
