@@ -18,9 +18,6 @@ module.exports = {
                 primary: "#dc3545",
                 secondary: "#24324a",
             },
-            colors: {
-                primary: "#DC3545"
-            }
         },
     },
     plugins: [require('@tailwindcss/forms')],
