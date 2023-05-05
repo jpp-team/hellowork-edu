@@ -2,10 +2,10 @@ import { logoMin } from "@/Data/assets";
 import { router } from "@inertiajs/react";
 import React, { useState } from "react";
 import PrimaryButton from "./PrimaryButton";
+import Button from "./Button";
+import { Link } from "@inertiajs/react";
 
-const menus = [
-    { name: '' }
-]
+const menus = [{ name: "" }];
 
 const Navbar = () => {
     const [menuIsHidden, setMenuIsHidden] = useState(false);
@@ -23,18 +23,27 @@ const Navbar = () => {
                     <img src={logoMin} />
                     <ul className="hidden md:flex items-center gap-2">
                         <li>
-                            <PrimaryButton>Course</PrimaryButton>
+                            <Link href="/">
+                                <Button variant="primary">Course</Button>
+                            </Link>
                         </li>
                         <li>
-                            <PrimaryButton onClick={goToLogin}>Login</PrimaryButton>
+                            <Link href="/login">
+                                <Button variant="outline">Login</Button>
+                            </Link>
                         </li>
                         <li>
-                            <PrimaryButton>Register</PrimaryButton>
+                            <Link href="/register">
+                                <Button variant="secondary">Register</Button>
+                            </Link>
                         </li>
                     </ul>
 
                     <div className="md:hidden flex items-center">
-                        <button className="outline-none mobile-menu-button" onClick={handleMenuButtonClick}>
+                        <button
+                            className="outline-none mobile-menu-button"
+                            onClick={handleMenuButtonClick}
+                        >
                             <svg
                                 fill="none"
                                 stroke="currentColor"
@@ -53,9 +62,30 @@ const Navbar = () => {
             <div className="md:hidden mobile-menu">
                 {menuIsHidden && (
                     <ul className="">
-                        <li><a href="#" className="block text-sm px-2 py-4 hover:text-white hover:bg-gray-800 transition duration-300">Course</a></li>
-                        <li><a href="#" className="block text-sm px-2 py-4 hover:text-white hover:bg-gray-800 transition duration-300">Login</a></li>
-                        <li><a href="#" className="block text-sm px-2 py-4 hover:text-white hover:bg-gray-800 transition duration-300">Register</a></li>
+                        <li>
+                            <a
+                                href="#"
+                                className="block text-sm px-2 py-4 hover:text-white hover:bg-gray-800 transition duration-300"
+                            >
+                                Course
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="#"
+                                className="block text-sm px-2 py-4 hover:text-white hover:bg-gray-800 transition duration-300"
+                            >
+                                Login
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="#"
+                                className="block text-sm px-2 py-4 hover:text-white hover:bg-gray-800 transition duration-300"
+                            >
+                                Register
+                            </a>
+                        </li>
                     </ul>
                 )}
             </div>

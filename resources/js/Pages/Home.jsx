@@ -2,7 +2,15 @@ import React from "react";
 import { Head } from "@inertiajs/react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import MainLayout from "@/Layouts/MainLayout";
-import { appStore, arkalearn, bgAbout, comingSoon, dibimbing, imgHero, playStore } from "@/Data/assets";
+import {
+    appStore,
+    arkalearn,
+    bgAbout,
+    comingSoon,
+    dibimbing,
+    imgHero,
+    playStore,
+} from "@/Data/assets";
 import "@splidejs/react-splide/css";
 
 const Home = () => {
@@ -31,15 +39,15 @@ const Home = () => {
                             options={{
                                 breakpoints: {
                                     1280: {
-                                        width: 996
+                                        width: 996,
                                     },
                                     996: {
-                                        width: 780
+                                        width: 780,
                                     },
                                     640: {
                                         perPage: 2,
-                                        width: 500
-                                    }
+                                        width: 500,
+                                    },
                                 },
                                 pagination: false,
                                 type: "loop",
@@ -100,8 +108,8 @@ const Home = () => {
                         </Splide>
                     </section>
                     <section
-                        className={`border-[#DF5B6A] border-t-2 py-20 bg-contain bg-no-repeat bg-right-bottom bg-[image:var(--image-about-url)]`}
-                        style={{ '--image-about-url': `url('${bgAbout}')` }}
+                        className={`border-[#DF5B6A] border-t-2 py-20 bg-contain bg-no-repeat bg-right-bottom lg:bg-[image:var(--image-about-url)]`}
+                        style={{ "--image-about-url": `url('${bgAbout}')` }}
                     >
                         <div className="container mx-auto">
                             <div className="w-4/5 flex flex-col md:w-2/3 gap-8">
