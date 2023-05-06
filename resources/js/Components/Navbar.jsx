@@ -24,12 +24,12 @@ const Navbar = () => {
                     <ul className="hidden md:flex items-center gap-2">
                         <li>
                             <Link href="/">
-                                <Button variant="primary">Course</Button>
+                                <Button variant="secondary">Course</Button>
                             </Link>
                         </li>
                         <li>
                             <Link href="/login">
-                                <Button variant="outline">Login</Button>
+                                <Button variant="secondary">Login</Button>
                             </Link>
                         </li>
                         <li>
