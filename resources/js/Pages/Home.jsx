@@ -70,7 +70,7 @@ const Home = () => {
                                         />
                                     </div>
                                     <p className="text-center">
-                                        Japanese Language
+                                        IT Skills
                                     </p>
                                 </div>
                             </SplideSlide>
@@ -82,7 +82,7 @@ const Home = () => {
                                             className="object-center w-24 h-auto"
                                         />
                                     </div>
-                                    <p className="text-center">IT Skills</p>
+                                    <p className="text-center">Japanase Language</p>
                                 </div>
                             </SplideSlide>
                             <SplideSlide>

@@ -1,5 +1,6 @@
 import React from "react";
-import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+import { Link } from "@inertiajs/react";
 
 const FooterAbout = () => {
     return (
@@ -15,9 +16,18 @@ const FooterAbout = () => {
                             Style, also Education through Working
                         </p>
                         <div className="flex gap-8 text-[#8a99b3]">
-                            <FaFacebookF size={24} />
-                            <FaTwitter size={24} />
-                            <FaInstagram size={24} />
+                            <Link href="https://www.facebook.com/helloworkasia.info/">
+                                <FaFacebookF size={24} />
+                            </Link>
+                            <Link href="https://twitter.com/hellowork_asia">
+                                <FaTwitter size={24} />
+                            </Link>
+                            <Link href="https://www.instagram.com/hellowork_asia/">
+                                <FaInstagram size={24} />
+                            </Link>
+                            <Link href="https://www.youtube.com/@helloworkasia7206">
+                                <FaYoutube size={24} />
+                            </Link>
                         </div>
                     </div>
                     <div className="md:col-span-2 flex flex-col gap-8">
