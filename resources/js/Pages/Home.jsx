@@ -39,14 +39,16 @@ const Home = () => {
                             options={{
                                 breakpoints: {
                                     1280: {
-                                        width: 996,
+                                        width: "100%",
                                     },
                                     996: {
-                                        width: 780,
+                                        perPage: 3,
                                     },
-                                    640: {
+                                    768: {
                                         perPage: 2,
-                                        width: 500,
+                                    },
+                                    480: {
+                                        perPage: 1,
                                     },
                                 },
                                 pagination: false,
