@@ -39,14 +39,16 @@ const Home = () => {
                             options={{
                                 breakpoints: {
                                     1280: {
-                                        width: 996,
+                                        width: "100%",
                                     },
                                     996: {
-                                        width: 780,
+                                        perPage: 3,
                                     },
-                                    640: {
+                                    768: {
                                         perPage: 2,
-                                        width: 500,
+                                    },
+                                    480: {
+                                        perPage: 1,
                                     },
                                 },
                                 pagination: false,
@@ -68,7 +70,7 @@ const Home = () => {
                                         />
                                     </div>
                                     <p className="text-center">
-                                        Japanese Language
+                                        IT Skills
                                     </p>
                                 </div>
                             </SplideSlide>
@@ -80,7 +82,7 @@ const Home = () => {
                                             className="object-center w-24 h-auto"
                                         />
                                     </div>
-                                    <p className="text-center">IT Skills</p>
+                                    <p className="text-center">Japanase Language</p>
                                 </div>
                             </SplideSlide>
                             <SplideSlide>
