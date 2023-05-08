@@ -16,18 +16,18 @@ const FooterAbout = () => {
                             Style, also Education through Working
                         </p>
                         <div className="flex gap-8 text-[#8a99b3]">
-                            <Link href="https://www.facebook.com/helloworkasia.info/">
+                            <a href="https://www.facebook.com/helloworkasia.info/" target="_blank">
                                 <FaFacebookF size={24} />
-                            </Link>
-                            <Link href="https://twitter.com/hellowork_asia">
+                            </a>
+                            <a href="https://twitter.com/hellowork_asia" target="_blank">
                                 <FaTwitter size={24} />
-                            </Link>
-                            <Link href="https://www.instagram.com/hellowork_asia/">
+                            </a>
+                            <a href="https://www.instagram.com/hellowork_asia/" target="_blank" >
                                 <FaInstagram size={24} />
-                            </Link>
-                            <Link href="https://www.youtube.com/@helloworkasia7206">
+                            </a>
+                            <a href="https://www.youtube.com/@helloworkasia7206" target="_blank">
                                 <FaYoutube size={24} />
-                            </Link>
+                            </a>
                         </div>
                     </div>
                     <div className="md:col-span-2 flex flex-col gap-8">
