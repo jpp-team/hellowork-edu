@@ -92,7 +92,7 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
-            <div className="md:hidden mobile-menu text-center">
+            <div className="md:hidden mobile-menu">
                 {menuIsHidden && (
                     <ul className="flex flex-col gap-2">
                         {user ? (
@@ -101,10 +101,8 @@ const Navbar = () => {
                                     <p>Welcome, {user.first_name}</p>
                                 </li>
                                 <li>
-                                    <Link href="/dashboard">
-                                        <Button variant="secondary">
+                                    <Link href="/dashboard" className="block text-sm px-2 py-4 hover:text-white hover:bg-gray-800 transition duration-300">
                                             Dashboard
-                                        </Button>
                                     </Link>
                                 </li>
                                 <li>
@@ -112,34 +110,27 @@ const Navbar = () => {
                                         method="post"
                                         as="button"
                                         href="/logout"
+                            className="block text-sm px-2 py-4 hover:text-white hover:bg-gray-800 transition duration-300"
                                     >
-                                        <Button variant="secondary">
                                             Logout
-                                        </Button>
                                     </Link>
                                 </li>
                             </>
                         ) : (
                             <>
                                 <li>
-                                    <Link href="/">
-                                        <Button variant="secondary">
+                                    <Link href="/" className="block text-sm px-2 py-4 hover:text-white hover:bg-gray-800 transition duration-300">
                                             Course
-                                        </Button>
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/login">
-                                        <Button variant="secondary">
+                                    <Link href="/login" className="block text-sm px-2 py-4 hover:text-white hover:bg-gray-800 transition duration-300">
                                             Login
-                                        </Button>
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/register">
-                                        <Button variant="secondary">
+                                    <Link href="/register" className="block text-sm px-2 py-4 hover:text-white hover:bg-gray-800 transition duration-300">
                                             Register
-                                        </Button>
                                     </Link>
                                 </li>
                             </>
