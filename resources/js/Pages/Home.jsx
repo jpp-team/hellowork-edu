@@ -2,15 +2,7 @@ import React from "react";
 import { Head } from "@inertiajs/react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import MainLayout from "@/Layouts/MainLayout";
-import {
-    appStore,
-    arkalearn,
-    bgAbout,
-    comingSoon,
-    dibimbing,
-    imgHero,
-    playStore,
-} from "@/Data/assets";
+import { appStore, bgAbout, imgHero, playStore } from "@/Data/assets";
 import "@splidejs/react-splide/css";
 
 const Home = ({ courses }) => {
@@ -55,10 +47,10 @@ const Home = ({ courses }) => {
                                 type: "loop",
                                 perPage: 3,
                                 gap: "1rem",
-                                rewind: true,
                                 width: 1205,
                                 autoplay: true,
                                 interval: 2000,
+                                arrows: true,
                             }}
                         >
                             {courses.map((course, index) => (
