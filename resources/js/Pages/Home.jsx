@@ -13,7 +13,7 @@ import {
 } from "@/Data/assets";
 import "@splidejs/react-splide/css";
 
-const Home = () => {
+const Home = ({ courses }) => {
     return (
         <>
             <Head>
@@ -61,52 +61,24 @@ const Home = () => {
                                 interval: 2000,
                             }}
                         >
-                            <SplideSlide>
-                                <div className="flex flex-col justify-center items-center gap-2">
-                                    <div className="bg-white rounded-full w-32 h-32 flex justify-center items-center">
-                                        <img
-                                            src={dibimbing}
-                                            className="object-center w-24 h-auto"
-                                        />
+                            {courses.map((course, index) => (
+                                <SplideSlide key={index}>
+                                    <div className="flex flex-col justify-center items-center gap-2">
+                                        <div className="bg-white rounded-full w-32 h-32 flex justify-center items-center">
+                                            <img
+                                                src={`${
+                                                    import.meta.env
+                                                        .VITE_URL_COURSE_ASSETS
+                                                }${course.image}`}
+                                                className="object-center w-24 h-auto"
+                                            />
+                                        </div>
+                                        <p className="text-center">
+                                            {course.course_category.name}
+                                        </p>
                                     </div>
-                                    <p className="text-center">
-                                        IT Skills
-                                    </p>
-                                </div>
-                            </SplideSlide>
-                            <SplideSlide>
-                                <div className="flex flex-col justify-center items-center gap-2">
-                                    <div className="bg-white rounded-full w-32 h-32 flex justify-center items-center">
-                                        <img
-                                            src={arkalearn}
-                                            className="object-center w-24 h-auto"
-                                        />
-                                    </div>
-                                    <p className="text-center">Japanase Language</p>
-                                </div>
-                            </SplideSlide>
-                            <SplideSlide>
-                                <div className="flex flex-col justify-center items-center gap-2">
-                                    <div className="bg-white rounded-full w-32 h-32 flex justify-center items-center">
-                                        <img
-                                            src={comingSoon}
-                                            className="object-center w-24 h-auto"
-                                        />
-                                    </div>
-                                    <p className="text-center">Coming Soon</p>
-                                </div>
-                            </SplideSlide>
-                            <SplideSlide>
-                                <div className="flex flex-col justify-center items-center gap-2">
-                                    <div className="bg-white rounded-full w-32 h-32 flex justify-center items-center">
-                                        <img
-                                            src={comingSoon}
-                                            className="object-center w-24 h-auto"
-                                        />
-                                    </div>
-                                    <p className="text-center">Coming Soon</p>
-                                </div>
-                            </SplideSlide>
+                                </SplideSlide>
+                            ))}
                         </Splide>
                     </section>
                     <section
