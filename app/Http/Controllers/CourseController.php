@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class CourseController extends Controller
 {
@@ -46,7 +47,12 @@ class CourseController extends Controller
      */
     public function show(Course $course)
     {
-        //
+        $courseWithCategory = Course::with(['courseCategory' => function ($query) use ($course) {
+            $query->where('id', $course->category_course_id);
+        }])->first();
+        return Inertia::render('Course/CourseDetail', [
+            'course' => $courseWithCategory
+        ]);
     }
 
     /**
