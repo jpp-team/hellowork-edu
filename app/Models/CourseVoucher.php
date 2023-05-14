@@ -11,4 +11,9 @@ class CourseVoucher extends Model
 
     protected $table = 'course_voucher';
     public $timestamps = false;
+
+    public function course()
+    {
+        return $this->belongsTo(Course::class, 'course_id');
+    }
 }
