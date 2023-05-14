@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
+use App\Models\CourseCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
 
 class HomeController extends Controller
@@ -14,7 +17,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return Inertia::render();
+        $courses = Course::with(["courseCategory"])->get();
+        return Inertia::render('Home', [
+            'courses' => $courses
+        ]);
     }
 
     /**
