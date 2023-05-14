@@ -1,16 +1,19 @@
 import Button from "@/Components/Button";
 import MainLayout from "@/Layouts/MainLayout";
+import { Head } from "@inertiajs/react";
 import React from "react";
 
 const CourseDetail = ({ course }) => {
-    console.log(course);
     return (
         <MainLayout>
-            <div className="w-full bg-primary h-80 flex flex-col gap-2 justify-center items-center">
+            <Head>
+                <title>{course.name}</title>
+            </Head>
+            <div className="w-full bg-primary h-80 flex flex-col gap-4 justify-center items-center pt-24">
                 <h1 className="text-black text-4xl font-semibold">
                     {course.name}
                 </h1>
-                <span className="text-secondary">Breadcrumbs</span>
+                <span className="text-secondary">Home - Course</span>
             </div>
             <div className="container mx-auto flex gap-2">
                 <div className="max-w-sm rounded-lg overflow-hidden shadow-md my-12">
