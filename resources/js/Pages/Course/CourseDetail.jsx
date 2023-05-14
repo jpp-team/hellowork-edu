@@ -1,9 +1,20 @@
 import Button from "@/Components/Button";
 import MainLayout from "@/Layouts/MainLayout";
-import { Head } from "@inertiajs/react";
+import { Head, useForm } from "@inertiajs/react";
 import React from "react";
 
-const CourseDetail = ({ course }) => {
+const CourseDetail = ({ course, courseVoucher }) => {
+    const { data, post, processing } = useForm({
+        voucher: courseVoucher.id,
+    });
+
+    const submit = (event) => {
+        event.preventDefault();
+        post("/course/redeem", {
+            preserveScroll: true,
+        });
+    };
+
     return (
         <MainLayout>
             <Head>
@@ -16,7 +27,10 @@ const CourseDetail = ({ course }) => {
                 <span className="text-secondary">Home - Course</span>
             </div>
             <div className="container mx-auto flex gap-2">
-                <div className="max-w-sm rounded-lg overflow-hidden shadow-md my-12">
+                <form
+                    className="max-w-sm rounded-lg overflow-hidden shadow-md my-12"
+                    onSubmit={submit}
+                >
                     <img
                         src={
                             import.meta.env.VITE_URL_COURSE_ASSETS +
@@ -34,15 +48,23 @@ const CourseDetail = ({ course }) => {
                             </span>
                         </div>
                         <div className="px-6 mb-2">
+                            <input
+                                type="hidden"
+                                value={data.voucher}
+                                name="voucher"
+                                id="voucher"
+                            />
                             <Button
                                 className="w-full justify-center"
                                 variant="primary"
+                                type="submit"
+                                disable={processing}
                             >
                                 Redeem
                             </Button>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </MainLayout>
     );
