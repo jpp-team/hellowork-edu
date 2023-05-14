@@ -1,15 +1,22 @@
 import React from "react";
 import FloatingButton from "@/Components/FloatingButton";
-import Footer from "@/Components/Footer";
 import Navbar from "@/Components/Navbar";
 import FooterAbout from "@/Components/FooterAbout";
+import { usePage } from "@inertiajs/react";
 
 const MainLayout = ({ children }) => {
+    const page = usePage();
     return (
-        <div className="flex flex-col min-h-screen antialiased bg-[#FFF8F0]">
+        <div className="relative flex flex-col min-h-screen antialiased bg-[#FFF8F0]">
             <Navbar />
-            {children}
-            <FooterAbout />
+            <div
+                className={`${
+                    page.component === "Course/CourseDetail" && "absolute"
+                } w-full`}
+            >
+                {children}
+                <FooterAbout />
+            </div>
             <FloatingButton />
         </div>
     );
