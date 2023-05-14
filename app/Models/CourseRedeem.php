@@ -10,5 +10,6 @@ class CourseRedeem extends Model
     use HasFactory;
 
     protected $table = 'course_redem';
+    protected $fillable = ['id_voucher', 'id_user'];
     public $timestamps = false;
 }
