@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\CourseRedeem;
+use App\Models\CourseVoucher;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class CourseController extends Controller
@@ -50,8 +53,10 @@ class CourseController extends Controller
         $courseWithCategory = Course::with(['courseCategory' => function ($query) use ($course) {
             $query->where('id', $course->category_course_id);
         }])->first();
+        $courseWithVoucher = CourseVoucher::with(['course'])->first();
         return Inertia::render('Course/CourseDetail', [
-            'course' => $courseWithCategory
+            'course' => $courseWithCategory,
+            'courseVoucher' => $courseWithVoucher
         ]);
     }
 
@@ -87,5 +92,21 @@ class CourseController extends Controller
     public function destroy(Course $course)
     {
         //
+    }
+
+    public function redeem(Request $request)
+    {
+        $request->validate([
+            'voucher' => 'required'
+        ]);
+
+        if (Auth::check()) {
+            $redeem = CourseRedeem::create([
+                'id_voucher' => $request->voucher,
+                'id_user' => Auth::user()->id
+            ]);
+        }
+
+        return redirect()->back();
     }
 }
