@@ -7,22 +7,25 @@ import { Toaster, toast } from "react-hot-toast";
 const CourseDetail = ({ course, courseVoucher, flash }) => {
     const { data, post, processing } = useForm({
         voucher: courseVoucher.id,
+        course: course.id,
     });
 
     const submit = (event) => {
         event.preventDefault();
         post("/course/redeem", {
             preserveScroll: true,
-            onSuccess: () =>
-                toast.success(flash.message.success, {
+            onSuccess: () => {
+                return toast.success(flash.message.success, {
                     position: "bottom-right",
                     duration: 2000,
-                }),
-            onError: () =>
-                toast.error(flash.message.error, {
+                });
+            },
+            onError: () => {
+                return toast.error(flash.message.error, {
                     position: "bottom-right",
                     duration: 2000,
-                }),
+                });
+            },
         });
     };
 
@@ -64,6 +67,12 @@ const CourseDetail = ({ course, courseVoucher, flash }) => {
                                 value={data.voucher}
                                 name="voucher"
                                 id="voucher"
+                            />
+                            <input
+                                type="hidden"
+                                value={data.course}
+                                name="course"
+                                id="course"
                             />
                             <Button
                                 className="w-full justify-center"
