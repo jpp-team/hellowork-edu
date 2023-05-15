@@ -97,7 +97,8 @@ class CourseController extends Controller
     public function redeem(Request $request)
     {
         $request->validate([
-            'voucher' => 'required'
+            'voucher' => 'required',
+            'course' => 'required'
         ]);
 
         if (Auth::check()) {
@@ -106,7 +107,7 @@ class CourseController extends Controller
                 'id_user' => Auth::user()->id
             ]);
         } else {
-            return redirect()->back()->with('message', ['error' => 'Please log in first']);
+            return redirect('/course/' . $request->course)->with('message', ['error' => 'Please log in first']);
         }
 
         return redirect()->back()->with('message', ['success' => 'Voucher has been redeemed']);
