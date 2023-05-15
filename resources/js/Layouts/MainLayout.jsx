@@ -3,12 +3,10 @@ import FloatingButton from "@/Components/FloatingButton";
 import Navbar from "@/Components/Navbar";
 import FooterAbout from "@/Components/FooterAbout";
 import { usePage } from "@inertiajs/react";
+import Toast from "@/Components/Toast";
 
 const MainLayout = ({ children }) => {
     const page = usePage();
-    const {flash} = page.props
-    console.log('main layout : ', flash)
-    if(flash.message)
     return (
         <div className="relative flex flex-col min-h-screen antialiased bg-[#FFF8F0]">
             <Navbar />
@@ -21,6 +19,7 @@ const MainLayout = ({ children }) => {
                 <FooterAbout />
             </div>
             <FloatingButton />
+        <Toast />
         </div>
     );
 };
