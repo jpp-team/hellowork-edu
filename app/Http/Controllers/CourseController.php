@@ -107,9 +107,9 @@ class CourseController extends Controller
                 'id_user' => Auth::user()->id
             ]);
         } else {
-            return redirect('/course/' . $request->course)->with('message', ['error' => 'Please log in first']);
+            return redirect('/course/' . $request->course)->withErrors(['message' => 'Please log in first']);
         }
 
-        return redirect()->back()->with('message', ['success' => 'Voucher has been redeemed']);
+        return redirect()->back()->with('message', "Voucher has been redeemed");
     }
 }

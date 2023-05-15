@@ -14,14 +14,15 @@ const CourseDetail = ({ course, courseVoucher, flash }) => {
         event.preventDefault();
         post("/course/redeem", {
             preserveScroll: true,
-            onSuccess: () => {
-                return toast.success(flash.message.success, {
+            onSuccess: (page) => {
+                console.log('res : ', page)
+                return toast.success(page.props.flash.message, {
                     position: "bottom-right",
                     duration: 2000,
                 });
             },
-            onError: () => {
-                return toast.error(flash.message.error, {
+            onError: (errors) => {
+                return toast.error(errors.message, {
                     position: "bottom-right",
                     duration: 2000,
                 });
