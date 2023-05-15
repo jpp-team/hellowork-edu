@@ -3,6 +3,7 @@ import FloatingButton from "@/Components/FloatingButton";
 import Navbar from "@/Components/Navbar";
 import FooterAbout from "@/Components/FooterAbout";
 import { usePage } from "@inertiajs/react";
+import Toast from "@/Components/Toast";
 
 const MainLayout = ({ children }) => {
     const page = usePage();
@@ -18,6 +19,7 @@ const MainLayout = ({ children }) => {
                 <FooterAbout />
             </div>
             <FloatingButton />
+        <Toast />
         </div>
     );
 };
