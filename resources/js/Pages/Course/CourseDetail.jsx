@@ -4,7 +4,7 @@ import { Head, useForm } from "@inertiajs/react";
 import React from "react";
 import { Toaster, toast } from "react-hot-toast";
 
-const CourseDetail = ({ course, courseVoucher, flash }) => {
+const CourseDetail = ({ course, courseVoucher }) => {
     const { data, post, processing } = useForm({
         voucher: courseVoucher.id,
         course: course.id,
