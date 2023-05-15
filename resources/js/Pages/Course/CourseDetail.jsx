@@ -2,7 +2,6 @@ import Button from "@/Components/Button";
 import MainLayout from "@/Layouts/MainLayout";
 import { Head, useForm } from "@inertiajs/react";
 import React from "react";
-import { Toaster, toast } from "react-hot-toast";
 
 const CourseDetail = ({ course, courseVoucher }) => {
     const { data, post, processing } = useForm({
@@ -14,19 +13,6 @@ const CourseDetail = ({ course, courseVoucher }) => {
         event.preventDefault();
         post("/course/redeem", {
             preserveScroll: true,
-            onSuccess: (page) => {
-                console.log('res : ', page)
-                return toast.success(page.props.flash.message, {
-                    position: "bottom-right",
-                    duration: 2000,
-                });
-            },
-            onError: (errors) => {
-                return toast.error(errors.message, {
-                    position: "bottom-right",
-                    duration: 2000,
-                });
-            },
         });
     };
 
@@ -87,7 +73,6 @@ const CourseDetail = ({ course, courseVoucher }) => {
                     </div>
                 </form>
             </div>
-            <Toaster />
         </MainLayout>
     );
 };
