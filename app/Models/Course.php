@@ -16,4 +16,9 @@ class Course extends Model
     {
         return $this->belongsTo(CourseCategory::class, 'category_course_id');
     }
+
+    public function courseVoucher()
+    {
+        return $this->hasMany(CourseVoucher::class, 'course_id', 'id');
+    }
 }
