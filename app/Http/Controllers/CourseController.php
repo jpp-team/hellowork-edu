@@ -14,11 +14,30 @@ class CourseController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $courseId = $request->query('id');
+        $course = Course::where('id', $courseId)->with(['courseCategory'])->first();
+        $courseAll = CourseVoucher::with(['course.courseCategory'])->get();
+
+        if ($course) {
+            $courseWithVoucher = CourseVoucher::with(['course' => function ($query) use ($courseId) {
+                $query->where('id', $courseId);
+            }])->where('course_id', $courseId)->get();
+            return Inertia::render('Course/CourseDetail', [
+                'courseId' => $courseId,
+                'course' => $course,
+                'courseVoucher' => $courseWithVoucher
+            ]);
+        }
+
+        return Inertia::render('Course/CourseDetail', [
+            'courseId' => $courseId,
+            'courseAll' => $courseAll
+        ]);
     }
 
     /**
@@ -53,7 +72,7 @@ class CourseController extends Controller
         $courseWithCategory = Course::with(['courseCategory' => function ($query) use ($course) {
             $query->where('id', $course->category_course_id);
         }])->first();
-        $courseWithVoucher = CourseVoucher::with(['course'])->first();
+        $courseWithVoucher = CourseVoucher::with(['course'])->get();
         return Inertia::render('Course/CourseDetail', [
             'course' => $courseWithCategory,
             'courseVoucher' => $courseWithVoucher
