@@ -1,13 +1,42 @@
 import React from "react";
 import Button from "@/Components/Button";
 import MainLayout from "@/Layouts/MainLayout";
+import { FaCopy } from "react-icons/fa";
 import { Head, useForm } from "@inertiajs/react";
 
-const CourseDetail = ({ course, courseVoucher, courseId, courseAll }) => {
+const CourseDetail = ({
+    course,
+    courseVoucher,
+    courseId,
+    courseAll,
+    auth,
+    courseRedeem,
+}) => {
     const { data, post, processing } = useForm({
         voucher: 0,
         course: courseId,
     });
+
+    const [copied, setCopied] = React.useState(false);
+
+    console.log(auth);
+    console.log("courseRedeem", courseRedeem);
+    console.log("courseVoucher", courseVoucher);
+
+    const checkRedeem = (voucher, user) => {
+        return courseRedeem.some((item) => {
+            return item.id_voucher === voucher && item.id_user === user;
+        });
+    };
+
+    const updateClipboard = (newClip) => {
+        navigator.clipboard.writeText(newClip).then(
+            () => console.log("copied"),
+            () => console.log("error copied")
+        );
+    };
+
+    console.log("checkRedeem", checkRedeem(4, 613));
 
     const submit = (event) => {
         event.preventDefault();
@@ -54,7 +83,7 @@ const CourseDetail = ({ course, courseVoucher, courseId, courseAll }) => {
                                                 {course.course_category.name}
                                             </span>
                                         </div>
-                                        <div className="px-6 mb-2">
+                                        <div className="px-6 mb-2 flex gap-2 items-center justify-center">
                                             <input
                                                 type="hidden"
                                                 value={voucher.id}
@@ -67,14 +96,40 @@ const CourseDetail = ({ course, courseVoucher, courseId, courseAll }) => {
                                                 name="course"
                                                 id="course"
                                             />
-                                            <Button
-                                                className="w-full justify-center"
-                                                variant="primary"
-                                                type="submit"
-                                                disable={processing}
-                                            >
-                                                Redeem
-                                            </Button>
+                                            {checkRedeem(
+                                                voucher.id,
+                                                auth.user.id
+                                            ) ? (
+                                                <>
+                                                    <Button
+                                                        className="w-full justify-center"
+                                                        variant="primary"
+                                                        disable={true}
+                                                    >
+                                                        Redeemed
+                                                    </Button>
+                                                    <div className="px-3 py-2.5 bg-slate-200 rounded-md inline-flex justify-center items-center gap-3">
+                                                        <span>
+                                                            {voucher.code}
+                                                        </span>
+                                                        <button
+                                                            className="relative"
+                                                            type="button"
+                                                        >
+                                                            <FaCopy />
+                                                        </button>
+                                                    </div>
+                                                </>
+                                            ) : (
+                                                <Button
+                                                    className="w-full justify-center"
+                                                    variant="primary"
+                                                    type="submit"
+                                                    disable={processing}
+                                                >
+                                                    Redeem
+                                                </Button>
+                                            )}
                                         </div>
                                     </div>
                                 </form>
@@ -110,7 +165,7 @@ const CourseDetail = ({ course, courseVoucher, courseId, courseAll }) => {
                                         {voucher.course.course_category.name}
                                     </span>
                                 </div>
-                                <div className="px-6 mb-2">
+                                <div className="px-6 mb-2 flex gap-2 items-center justify-center">
                                     <input
                                         type="hidden"
                                         value={voucher.id}
@@ -119,18 +174,39 @@ const CourseDetail = ({ course, courseVoucher, courseId, courseAll }) => {
                                     />
                                     <input
                                         type="hidden"
-                                        value={voucher.course.id}
+                                        value={data.course}
                                         name="course"
                                         id="course"
                                     />
-                                    <Button
-                                        className="w-full justify-center"
-                                        variant="primary"
-                                        type="submit"
-                                        disable={processing}
-                                    >
-                                        Redeem
-                                    </Button>
+                                    {checkRedeem(voucher.id, auth.user.id) ? (
+                                        <>
+                                            <Button
+                                                className="w-full justify-center"
+                                                variant="primary"
+                                                disable={true}
+                                            >
+                                                Redeemed
+                                            </Button>
+                                            <div className="px-3 py-2.5 bg-slate-200 rounded-md inline-flex justify-center items-center gap-3">
+                                                <span>{voucher.code}</span>
+                                                <button
+                                                    className="relative"
+                                                    type="button"
+                                                >
+                                                    <FaCopy />
+                                                </button>
+                                            </div>
+                                        </>
+                                    ) : (
+                                        <Button
+                                            className="w-full justify-center"
+                                            variant="primary"
+                                            type="submit"
+                                            disable={processing}
+                                        >
+                                            Redeem
+                                        </Button>
+                                    )}
                                 </div>
                             </div>
                         </form>
