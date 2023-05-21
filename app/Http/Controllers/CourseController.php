@@ -22,6 +22,7 @@ class CourseController extends Controller
         $courseId = $request->query('id');
         $course = Course::where('id', $courseId)->with(['courseCategory'])->first();
         $courseAll = CourseVoucher::with(['course.courseCategory'])->get();
+        $courseRedeem = CourseRedeem::with(['courseVoucher', 'user'])->get();
 
         if ($course) {
             $courseWithVoucher = CourseVoucher::with(['course' => function ($query) use ($courseId) {
@@ -30,13 +31,15 @@ class CourseController extends Controller
             return Inertia::render('Course/CourseDetail', [
                 'courseId' => $courseId,
                 'course' => $course,
-                'courseVoucher' => $courseWithVoucher
+                'courseVoucher' => $courseWithVoucher,
+                'courseRedeem' => $courseRedeem
             ]);
         }
 
         return Inertia::render('Course/CourseDetail', [
             'courseId' => $courseId,
-            'courseAll' => $courseAll
+            'courseAll' => $courseAll,
+            'courseRedeem' => $courseRedeem
         ]);
     }
 
