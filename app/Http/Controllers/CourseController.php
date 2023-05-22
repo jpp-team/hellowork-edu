@@ -20,18 +20,14 @@ class CourseController extends Controller
     public function index(Request $request)
     {
         $courseId = $request->query('id');
-        $course = Course::where('id', $courseId)->with(['courseCategory'])->first();
-        $courseAll = CourseVoucher::with(['course.courseCategory'])->get();
+        $course = Course::with(['courseCategory', 'courseVoucher'])->where('category_course_id', $courseId)->get();
+        $courseAll = Course::with(['courseCategory', 'courseVoucher'])->get();
         $courseRedeem = CourseRedeem::with(['courseVoucher', 'user'])->get();
 
-        if ($course) {
-            $courseWithVoucher = CourseVoucher::with(['course' => function ($query) use ($courseId) {
-                $query->where('id', $courseId);
-            }])->where('course_id', $courseId)->get();
+        if (count($course) > 0) {
             return Inertia::render('Course/CourseDetail', [
                 'courseId' => $courseId,
                 'course' => $course,
-                'courseVoucher' => $courseWithVoucher,
                 'courseRedeem' => $courseRedeem
             ]);
         }
