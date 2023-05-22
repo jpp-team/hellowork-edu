@@ -27,7 +27,7 @@ const Navbar = () => {
                         {!user ? (
                             <>
                                 <li>
-                                    <Link href="/">
+                                    <Link href="/course">
                                         <Button variant="secondary">
                                             Course
                                         </Button>
@@ -143,7 +143,7 @@ const Navbar = () => {
                                 <>
                                     <li>
                                         <Link
-                                            href="/"
+                                            href="/course"
                                             className="block text-sm px-2 py-4 hover:text-white hover:bg-gray-800 transition duration-300"
                                         >
                                             Course
