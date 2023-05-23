@@ -1,11 +1,19 @@
 import React from "react";
-import { Head } from "@inertiajs/react";
+import { Head, Link } from "@inertiajs/react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import MainLayout from "@/Layouts/MainLayout";
 import { appStore, bgAbout, imgHero, playStore } from "@/Data/assets";
 import "@splidejs/react-splide/css";
 
 const Home = ({ courses }) => {
+    const courseCategories = courses.filter(
+        (object, index, self) =>
+            index ===
+            self.findIndex(
+                (o) => o.category_course_id === object.category_course_id
+            )
+    );
+
     return (
         <>
             <Head>
@@ -53,22 +61,26 @@ const Home = ({ courses }) => {
                                 arrows: true,
                             }}
                         >
-                            {courses.map((course, index) => (
+                            {courseCategories.map((course, index) => (
                                 <SplideSlide key={index}>
-                                    <div className="flex flex-col justify-center items-center gap-2">
-                                        <div className="bg-white rounded-full w-32 h-32 flex justify-center items-center">
-                                            <img
-                                                src={`${
-                                                    import.meta.env
-                                                        .VITE_URL_COURSE_ASSETS
-                                                }${course.image}`}
-                                                className="object-center w-24 h-auto"
-                                            />
+                                    <Link
+                                        href={`/course?id=${course.category_course_id}`}
+                                    >
+                                        <div className="flex flex-col justify-center items-center gap-2">
+                                            <div className="bg-white rounded-full w-32 h-32 flex justify-center items-center">
+                                                <img
+                                                    src={`${
+                                                        import.meta.env
+                                                            .VITE_URL_COURSE_ASSETS
+                                                    }${course.image}`}
+                                                    className="object-center w-24 h-auto"
+                                                />
+                                            </div>
+                                            <p className="text-center">
+                                                {course.course_category.name}
+                                            </p>
                                         </div>
-                                        <p className="text-center">
-                                            {course.course_category.name}
-                                        </p>
-                                    </div>
+                                    </Link>
                                 </SplideSlide>
                             ))}
                         </Splide>

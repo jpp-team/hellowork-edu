@@ -1,6 +1,6 @@
-import { logoMin } from "@/Data/assets";
-import { router, usePage } from "@inertiajs/react";
 import React, { useState } from "react";
+import { logoMin } from "@/Data/assets";
+import { usePage } from "@inertiajs/react";
 import Button from "./Button";
 import { Link } from "@inertiajs/react";
 import Dropdown from "./Dropdown";
@@ -22,7 +22,9 @@ const Navbar = () => {
         <nav className="bg-white/30 z-10">
             <div className="max-w-6xl mx-auto px-4">
                 <div className="flex justify-between items-center p-8">
-                    <img src={logoMin} />
+                    <Link href="/">
+                        <img src={logoMin} />
+                    </Link>
                     <ul className="hidden md:flex items-center gap-2">
                         {!user ? (
                             <>
