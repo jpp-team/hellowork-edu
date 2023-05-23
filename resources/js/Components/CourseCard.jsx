@@ -1,26 +1,31 @@
+import { useForm } from "@inertiajs/react";
 import React from "react";
 import { FaCopy } from "react-icons/fa";
 import Button from "./Button";
 
-const CourseCard = ({
-    onSubmit,
-    course,
-    data,
-    processing,
-    auth,
-    courseRedeem,
-}) => {
+const CourseCard = ({ course, auth, courseRedeem }) => {
+    const { data, post, processing } = useForm({
+        voucher: course.course_voucher?.id || 0,
+        course: course?.id || "",
+    });
 
     const checkRedeem = (voucher, user) => {
         return courseRedeem.some((item) => {
             return item.id_voucher === voucher && item.id_user === user;
         });
     };
+    const submit = (event) => {
+        event.preventDefault();
+        post("/course/redeem", {
+            preserveScroll: true,
+        });
+        return false;
+    };
 
     return (
         <form
             className="max-w-sm rounded-lg overflow-hidden shadow-md my-12"
-            onSubmit={onSubmit}
+            onSubmit={submit}
         >
             <img
                 src={import.meta.env.VITE_URL_COURSE_ASSETS + course?.image}
@@ -36,13 +41,13 @@ const CourseCard = ({
                 <div className="px-6 mb-2 flex gap-2 items-center justify-center">
                     <input
                         type="hidden"
-                        value={course?.course_voucher?.id}
+                        value={course?.course_voucher?.id || ""}
                         name="voucher"
                         id="voucher"
                     />
                     <input
                         type="hidden"
-                        value={data?.course}
+                        value={course?.id || ""}
                         name="course"
                         id="course"
                     />

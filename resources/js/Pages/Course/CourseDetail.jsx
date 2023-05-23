@@ -1,9 +1,10 @@
 import React from "react";
 import MainLayout from "@/Layouts/MainLayout";
-import { Head, useForm } from "@inertiajs/react";
+import { Head, router, useForm } from "@inertiajs/react";
 import CourseCard from "@/Components/CourseCard";
 
-const CourseDetail = ({ course, courseId, courseAll, auth, courseRedeem }) => {
+const CourseDetail = ({ courses, course, courseId, auth, courseRedeem }) => {
+    console.log("courses : ", courses);
     const { data, post, processing } = useForm({
         voucher: 0,
         course: courseId,
@@ -18,9 +19,7 @@ const CourseDetail = ({ course, courseId, courseAll, auth, courseRedeem }) => {
 
     const submit = (event) => {
         event.preventDefault();
-        post("/course/redeem", {
-            preserveScroll: true,
-        });
+        return false;
     };
 
     return (
@@ -41,8 +40,8 @@ const CourseDetail = ({ course, courseId, courseAll, auth, courseRedeem }) => {
                 <span className="text-secondary">Home - Course</span>
             </div>
             <div className="container mx-auto flex gap-4">
-                {course ? (
-                    course.map((course, index) => (
+                {courses?.length &&
+                    courses.map((course, index) => (
                         <CourseCard
                             key={index}
                             onSubmit={submit}
@@ -52,22 +51,8 @@ const CourseDetail = ({ course, courseId, courseAll, auth, courseRedeem }) => {
                             auth={auth}
                             courseRedeem={courseRedeem}
                         />
-                    ))
-                ) : courseAll ? (
-                    courseAll.map((course, index) => (
-                        <CourseCard
-                            key={index}
-                            onSubmit={submit}
-                            course={course}
-                            data={data}
-                            processing={processing}
-                            auth={auth}
-                            courseRedeem={courseRedeem}
-                        />
-                    ))
-                ) : (
-                    <p>euweuh course</p>
-                )}
+                    ))}
+                {courses.length < 1 && <p>Tidak ada course</p>}
             </div>
         </MainLayout>
     );
