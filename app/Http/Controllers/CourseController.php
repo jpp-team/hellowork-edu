@@ -21,10 +21,10 @@ class CourseController extends Controller
     {
         $courseId = $request->query('id');
         $courses = Course::with(['courseCategory', 'courseVoucher'])
-        ->when($courseId, function($query, $courseId) {
-            $query->where('category_course_id', $courseId);
-        })
-        ->get();
+            ->when($courseId, function ($query, $courseId) {
+                $query->where('category_course_id', $courseId);
+            })
+            ->get();
         $courseRedeem = CourseRedeem::with(['courseVoucher', 'user'])->get();
 
         return Inertia::render('Course/CourseDetail', [
