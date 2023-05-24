@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { logoMin } from "@/Data/assets";
-import { usePage } from "@inertiajs/react";
+import { router, usePage } from "@inertiajs/react";
 import Button from "./Button";
 import { Link } from "@inertiajs/react";
 import Dropdown from "./Dropdown";
@@ -63,11 +63,14 @@ const Navbar = () => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link method="post" href="/logout">
-                                        <Button variant="secondary">
-                                            Logout
-                                        </Button>
-                                    </Link>
+                                    <Button
+                                        variant="secondary"
+                                        onClick={() =>
+                                            router.post(route("logout"))
+                                        }
+                                    >
+                                        Logout
+                                    </Button>
                                 </li>
                             </>
                         )}
