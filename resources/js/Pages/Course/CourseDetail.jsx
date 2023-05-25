@@ -26,15 +26,15 @@ const CourseDetail = ({ courses, course, courseId, auth, courseRedeem }) => {
         <MainLayout>
             <Head>
                 <title>
-                    {course
-                        ? course[0]?.course_category?.name
+                    {courses
+                        ? courses[0]?.course_category?.name
                         : "Daftar Course"}
                 </title>
             </Head>
             <div className="w-full bg-primary h-80 flex flex-col gap-4 justify-center items-center pt-24">
                 <h1 className="text-black text-4xl font-semibold">
-                    {course
-                        ? course[0]?.course_category?.name
+                    {courses
+                        ? courses[0]?.course_category?.name
                         : "Daftar Course"}
                 </h1>
                 <span className="text-secondary">Home - Course</span>
