@@ -90,12 +90,12 @@ const Home = ({ courses }) => {
                         style={{ "--image-about-url": `url('${bgAbout}')` }}
                     >
                         <div className="container mx-auto">
-                            <div className="w-4/5 flex flex-col md:w-2/3 gap-8">
+                            <div className="w-4/5 flex flex-col md:w-2/3 gap-8 mx-8 md:mx-4">
                                 <h1 className="text-4xl font-normal md:text-5xl lg:text-6xl font-serif leading-snug">
                                     E-Learning <br /> one step for a better
                                     future with hellowork-asia
                                 </h1>
-                                <div className="flex md:w-3/4">
+                                <div className="flex md:w-3/4 gap-8">
                                     <div className="w-full flex flex-col gap-2">
                                         <h2 className="text-3xl font-serif md:text-4xl">
                                             DOWNLOAD HELLOWORK-ASIA APP NOW!
@@ -106,11 +106,15 @@ const Home = ({ courses }) => {
                                         </p>
                                     </div>
                                     <div className="flex flex-col w-48">
-                                        <img src={appStore} />
-                                        <img
-                                            src={playStore}
-                                            className="w-max"
-                                        />
+                                        <Link href="https://apps.apple.com/id/app/hellowork-asia/id1513969659">
+                                            <img src={appStore} />
+                                        </Link>
+                                        <Link href="https://play.google.com/store/apps/details?id=com.hellowork_asia.app&hl=en">
+                                            <img
+                                                src={playStore}
+                                                className="w-max"
+                                            />
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
