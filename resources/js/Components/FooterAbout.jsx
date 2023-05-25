@@ -16,16 +16,28 @@ const FooterAbout = () => {
                             Style, also Education through Working
                         </p>
                         <div className="flex gap-8 text-[#8a99b3]">
-                            <a href="https://www.facebook.com/helloworkasia.info/" target="_blank">
+                            <a
+                                href="https://www.facebook.com/helloworkasia.info/"
+                                target="_blank"
+                            >
                                 <FaFacebookF size={24} />
                             </a>
-                            <a href="https://twitter.com/hellowork_asia" target="_blank">
+                            <a
+                                href="https://twitter.com/hellowork_asia"
+                                target="_blank"
+                            >
                                 <FaTwitter size={24} />
                             </a>
-                            <a href="https://www.instagram.com/hellowork_asia/" target="_blank" >
+                            <a
+                                href="https://www.instagram.com/hellowork_asia/"
+                                target="_blank"
+                            >
                                 <FaInstagram size={24} />
                             </a>
-                            <a href="https://www.youtube.com/@helloworkasia7206" target="_blank">
+                            <a
+                                href="https://www.youtube.com/@helloworkasia7206"
+                                target="_blank"
+                            >
                                 <FaYoutube size={24} />
                             </a>
                         </div>
@@ -33,19 +45,83 @@ const FooterAbout = () => {
                     <div className="md:col-span-2 flex flex-col gap-8">
                         <h2>Information</h2>
                         <ul className="text-[#8a99b3] leading-8 text-sm">
-                            <li>Terms & Condition</li>
-                            <li>Privacy Policy</li>
-                            <li>Contact Us</li>
-                            <li>FAQs</li>
+                            <li>
+                                <a
+                                    href="https://hellowork-asia.com/term"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Terms & Condition
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="https://hellowork-asia.com/privacy"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Privacy Policy
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="https://hellowork-asia.com/contact-us"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Contact Us
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="https://hellowork-asia.com/faq"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    FAQs
+                                </a>
+                            </li>
                         </ul>
                     </div>
                     <div className="md:col-span-2 flex flex-col gap-8">
                         <h2>Find Jobs</h2>
                         <ul className="text-[#8a99b3] leading-8 text-sm">
-                            <li>Part Time</li>
-                            <li>Freelance</li>
-                            <li>Internship</li>
-                            <li>Working Abroad</li>
+                            <li>
+                                <a
+                                    href="https://hellowork-asia.com/job?q=&jt%5B%5D=1"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Part Time
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="https://hellowork-asia.com/job?q=&jt%5B%5D=2"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Freelance
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="https://hellowork-asia.com/job?q=&jt%5B%5D=3"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Internship
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="https://hellowork-asia.com/job?q=&jt%5B%5D=4"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Working Abroad
+                                </a>
+                            </li>
                         </ul>
                     </div>
                     <div className="md:col-span-4 flex flex-col gap-2">
