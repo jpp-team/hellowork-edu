@@ -52,8 +52,12 @@ const Navbar = () => {
                             </>
                         ) : (
                             <>
-                                <li className="mr-4">
-                                    <p>Welcome, {user.first_name}</p>
+                                <li>
+                                    <Link href="/course">
+                                        <Button variant="secondary">
+                                            Course
+                                        </Button>
+                                    </Link>
                                 </li>
                                 <li>
                                     <Link href="/dashboard">
@@ -123,6 +127,11 @@ const Navbar = () => {
                                     </Dropdown.Trigger>
 
                                     <Dropdown.Content>
+                                        <Dropdown.Link
+                                            href={route("course.index")}
+                                        >
+                                            Course
+                                        </Dropdown.Link>
                                         <Dropdown.Link
                                             href={route("dashboard")}
                                         >

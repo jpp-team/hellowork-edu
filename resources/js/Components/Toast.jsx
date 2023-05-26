@@ -8,17 +8,17 @@ const Toast = () => {
     useEffect(() => {
         if (errors.error) {
             toast.error(errors.error, {
-                position: "bottom-right",
+                position: "top-center",
                 duration: 2000,
             });
         } else if (flash.success !== null) {
             toast.success(flash.success, {
-                position: "bottom-right",
+                position: "top-center",
                 duration: 2000,
             });
         } else if (flash.error !== null) {
             toast.error(flash.error, {
-                position: "bottom-right",
+                position: "top-center",
                 duration: 2000,
             });
         }

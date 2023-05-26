@@ -19,7 +19,7 @@ const MainLayout = ({ children }) => {
                 <FooterAbout />
             </div>
             <FloatingButton />
-        <Toast />
+            <Toast />
         </div>
     );
 };
