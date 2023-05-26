@@ -106,15 +106,15 @@ const Home = ({ courses }) => {
                                         </p>
                                     </div>
                                     <div className="flex flex-col w-48">
-                                        <Link href="https://apps.apple.com/id/app/hellowork-asia/id1513969659">
+                                        <a target="_blank" href="https://apps.apple.com/id/app/hellowork-asia/id1513969659">
                                             <img src={appStore} />
-                                        </Link>
-                                        <Link href="https://play.google.com/store/apps/details?id=com.hellowork_asia.app&hl=en">
+                                        </a>
+                                        <a target="_blank" href="https://play.google.com/store/apps/details?id=com.hellowork_asia.app&hl=en">
                                             <img
                                                 src={playStore}
                                                 className="w-max"
                                             />
-                                        </Link>
+                                        </a>
                                     </div>
                                 </div>
                             </div>

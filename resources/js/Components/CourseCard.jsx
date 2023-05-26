@@ -58,7 +58,7 @@ const CourseCard = ({ course, auth, courseRedeem }) => {
                                 variant="primary"
                                 disable={true}
                             >
-                                Voucher cannot Redeemed
+                                Redeemed
                             </Button>
                             <div className="px-3 py-2.5 bg-slate-200 rounded-md inline-flex justify-center items-center gap-3">
                                 <span>{course?.course_voucher?.code}</span>
