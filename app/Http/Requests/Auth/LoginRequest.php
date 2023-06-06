@@ -46,6 +46,13 @@ class LoginRequest extends FormRequest
         $password = $this->password;
 
         $getUser = User::where('email', $email)->first();
+        if (!$getUser) {
+            RateLimiter::hit($this->throttleKey());
+
+            throw ValidationException::withMessages([
+                'email' => trans('auth.failed'),
+            ]);
+        }
         $tryHash = crypt($password, $getUser->password);
         $isMatch = hash_equals($getUser->password, $tryHash);
 
