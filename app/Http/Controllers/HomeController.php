@@ -15,7 +15,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $courses = Course::with(["courseCategory"])->get();
+        $courses = Course::with(["courseCategory"])->where('is_deleted', 0)->get();
         return Inertia::render('Home', [
             'courses' => $courses
         ]);
