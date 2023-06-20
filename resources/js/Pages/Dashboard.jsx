@@ -1,9 +1,18 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
+import { useState } from "react";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 import { FaCopy } from "react-icons/fa";
 
-export default function Dashboard({ auth, errors, course, courseRedeemed }) {
-    // console.log(courseRedeemed)
+export default function Dashboard({ auth, errors, courseRedeemed }) {
+    const [copy, setCopy] = useState(false);
+
+    const handleCopy = () => {
+        setTimeout(() => {
+            setCopy(true);
+        }, 2000);
+        setCopy(false);
+    };
     return (
         <AuthenticatedLayout
             auth={auth}
@@ -19,7 +28,7 @@ export default function Dashboard({ auth, errors, course, courseRedeemed }) {
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                        <div className="m-8 grid grid-cols-4 gap-4">
+                        <div className="m-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                             {courseRedeemed &&
                                 courseRedeemed.map((voucher, index) => (
                                     <div
@@ -46,14 +55,27 @@ export default function Dashboard({ auth, errors, course, courseRedeemed }) {
                                                 </span>
                                             </div>
                                             <div className="px-6 mb-2 flex gap-2 items-center justify-center">
-                                                <div className="px-3 py-2.5 bg-slate-200 rounded-md inline-flex justify-center items-center gap-3">
+                                                <div className="px-3 py-2.5 bg-slate-200 rounded-md inline-flex justify-center items-center gap-3 my-4">
                                                     <span>{voucher.code}</span>
-                                                    <button
-                                                        className="relative"
-                                                        type="button"
+                                                    <CopyToClipboard
+                                                        text={voucher.code}
                                                     >
-                                                        <FaCopy />
-                                                    </button>
+                                                        <button
+                                                            className="relative"
+                                                            type="button"
+                                                            onClick={handleCopy}
+                                                        >
+                                                            <FaCopy />
+                                                            {!copy && (
+                                                                <span
+                                                                    class={`pointer-events-none absolute -bottom-12 -left-28 w-max bg-zinc-200 px-3 py-1 rounded-md`}
+                                                                >
+                                                                    Code has
+                                                                    been copied
+                                                                </span>
+                                                            )}
+                                                        </button>
+                                                    </CopyToClipboard>
                                                 </div>
                                             </div>
                                         </div>
