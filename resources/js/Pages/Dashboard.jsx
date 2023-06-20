@@ -3,6 +3,7 @@ import { Head } from "@inertiajs/react";
 import { FaCopy } from "react-icons/fa";
 
 export default function Dashboard({ auth, errors, course, courseRedeemed }) {
+    // console.log(courseRedeemed)
     return (
         <AuthenticatedLayout
             auth={auth}
@@ -19,8 +20,8 @@ export default function Dashboard({ auth, errors, course, courseRedeemed }) {
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="flex gap-4 m-8">
-                            {course &&
-                                course.map((voucher, index) => (
+                            {courseRedeemed &&
+                                courseRedeemed.map((voucher, index) => (
                                     <div
                                         className="max-w-sm rounded-md overflow-hidden shadow-md my-12"
                                         key={index}
@@ -29,20 +30,18 @@ export default function Dashboard({ auth, errors, course, courseRedeemed }) {
                                             src={
                                                 import.meta.env
                                                     .VITE_URL_COURSE_ASSETS +
-                                                voucher.course.image
+                                                voucher.image
                                             }
                                             className="object-cover w-full"
                                         />
                                         <div className="py-4 flex flex-col gap-4">
                                             <div className="px-6 gap-2 flex flex-col">
                                                 <h2 className="text-2xl font-medium">
-                                                    {voucher.course.name}
+                                                    {voucher.course_name}
                                                 </h2>
                                                 <span className="inline-block bg-slate-200 rounded-full px-3 py-1 font-semibold text-secondary text-sm w-fit">
                                                     {
-                                                        voucher.course
-                                                            .course_category
-                                                            .name
+                                                        voucher.category_course_name
                                                     }
                                                 </span>
                                             </div>

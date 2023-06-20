@@ -17,7 +17,21 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $courseRedeemed = CourseRedeem::with(['courseVoucher', 'user'])->get();
+        request()->user()->id;
+        // dd(request()->user()->id);
+        $courseRedeemed = CourseRedeem::select("course.name AS course_name","category_course.name AS category_course_name","course.image"
+        ,"course_voucher.code"
+        ,"course_voucher.is_redem"
+        ,"course_redem.id"
+        ,"course_redem.id_voucher"
+        ,"course_redem.id_user")
+        ->join('users', 'users.id', '=', 'course_redem.id_user')
+        ->join('course_voucher','course_redem.id_voucher','=','course_voucher.id')
+        ->join('course','course.id','=','course_voucher.course_id')
+        ->join('category_course','category_course.id','=','course.category_course_id')
+        ->get();
+        // dd($courseRedeemed);
+        // $courseRedeemed = CourseRedeem::with(['courseVoucher', 'user'])->get();
         $courseAll = CourseVoucher::with(['course.courseCategory'])->get();
 
         return Inertia::render('Dashboard', [
