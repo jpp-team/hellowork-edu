@@ -1,9 +1,11 @@
 import { useForm } from "@inertiajs/react";
-import React from "react";
+import React, { useState } from "react";
 import { FaCopy } from "react-icons/fa";
 import Button from "./Button";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 const CourseCard = ({ course, auth, courseRedeem }) => {
+    const [copy, setCopy] = useState(false);
     const { data, post, processing } = useForm({
         voucher: course.course_voucher?.id || 0,
         course: course?.id || "",
@@ -14,6 +16,14 @@ const CourseCard = ({ course, auth, courseRedeem }) => {
             return item.id_voucher === voucher && item.id_user === user;
         });
     };
+
+    const handleCopy = () => {
+        setTimeout(() => {
+            setCopy(true);
+        }, 2000);
+        setCopy(false);
+    };
+
     const submit = (event) => {
         event.preventDefault();
         post("/course/redeem", {
@@ -62,9 +72,20 @@ const CourseCard = ({ course, auth, courseRedeem }) => {
                             </Button>
                             <div className="px-3 py-2.5 bg-slate-200 rounded-md inline-flex justify-center items-center gap-3">
                                 <span>{course?.course_voucher?.code}</span>
-                                <button className="relative" type="button">
-                                    <FaCopy />
-                                </button>
+                                <CopyToClipboard
+                                    text={course?.course_voucher?.code}
+                                >
+                                    <button className="relative" type="button" onClick={handleCopy}>
+                                        <FaCopy />
+                                        {!copy && (
+                                            <span
+                                                class={`pointer-events-none absolute -bottom-12 -left-28 w-max bg-zinc-200 px-3 py-1 rounded-md`}
+                                            >
+                                                Code has been copied
+                                            </span>
+                                        )}
+                                    </button>
+                                </CopyToClipboard>
                             </div>
                         </>
                     ) : !course?.course_voucher ? (
