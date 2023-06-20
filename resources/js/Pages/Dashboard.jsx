@@ -19,11 +19,11 @@ export default function Dashboard({ auth, errors, course, courseRedeemed }) {
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                        <div className="flex gap-4 m-8">
+                        <div className="m-8 grid grid-cols-4 gap-4">
                             {courseRedeemed &&
                                 courseRedeemed.map((voucher, index) => (
                                     <div
-                                        className="max-w-sm rounded-md overflow-hidden shadow-md my-12"
+                                        className="max-w-sm rounded-md overflow-hidden shadow-md my-12 flex flex-col justify-between"
                                         key={index}
                                     >
                                         <img
