@@ -32,7 +32,7 @@ const CourseDetail = ({ courses, courseId, auth, courseRedeem }) => {
                 </h1>
                 <span className="text-secondary">Home - Course</span>
             </div>
-            <div className="container mx-auto flex gap-4">
+            <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 {courses?.length &&
                     courses.map((course, index) => (
                         <CourseCard
