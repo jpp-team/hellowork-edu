@@ -3,19 +3,12 @@ import MainLayout from "@/Layouts/MainLayout";
 import { Head, router, useForm } from "@inertiajs/react";
 import CourseCard from "@/Components/CourseCard";
 
-const CourseDetail = ({ courses, course, courseId, auth, courseRedeem }) => {
+const CourseDetail = ({ courses, courseId, auth, courseRedeem }) => {
     console.log("courses : ", courses);
-    const { data, post, processing } = useForm({
+    const { data, processing } = useForm({
         voucher: 0,
         course: courseId,
     });
-
-    const updateClipboard = (newClip) => {
-        navigator.clipboard.writeText(newClip).then(
-            () => console.log("copied"),
-            () => console.log("error copied")
-        );
-    };
 
     const submit = (event) => {
         event.preventDefault();
